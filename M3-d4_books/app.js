@@ -5,22 +5,13 @@ const loadBooks = () => {
     fetch("https://striveschool-api.herokuapp.com/books"  )
     .then( response => response.json())
     .then(books => {
-
         console.log(books)
-
-      
-
         books.forEach(book => {
 
-            create_cards(book);
-                    
-                           
-                
-            
-        });
-
-
+           create_cards(book)                       
+        })        
     })
+    .then(() => add_to_cart()  )
 }
 
 
@@ -37,7 +28,7 @@ const create_cards = (book) =>{
                        <h5 class="card-title">${book.title}</h5>
                         <p class="card-text">${book.category}</p>
                         <a href="#" class="btn btn-primary">${book.price}</a>
-                <button type="button" class="btn btn-dark">Add to <i class="bi bi-cart2 text-white"></i> </button>
+                <button id="addBook" type="button" class="btn btn-dark" >Add to <i class="bi bi-cart2 text-white"></i> </button>
                </div>
                   </div> `
 
@@ -46,4 +37,20 @@ const create_cards = (book) =>{
 
 }
 
+
+
+const add_to_cart = () =>{
+
+        
+    const bntAdd = document.getElementById('addBook')
+    
+     bntAdd.addEventListener('click', test )}
+
+function test (){
+           console.log('test');
+        
+}
+
+
 loadBooks()
+
