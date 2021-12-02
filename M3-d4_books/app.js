@@ -46,11 +46,18 @@ const add_to_cart = () =>{
     
      bntAdd.addEventListener('click', test )}
 
+
+     let shoppingList = []
+
 function test (){
-           console.log('test');
+        
+    let bookToAdd = document.querySelector('.card');
+    shoppingList[card].push(bookToAdd)
+
         
 }
 
 
 loadBooks()
+console.log(shoppingList)
 
