@@ -1,3 +1,11 @@
+window.onload = () => {
+
+    loadBooks
+}
+
+      let books = [];
+      let shoppingCartList = [];
+      let filteredBooks = [];
 
 
 const loadBooks = () => {
@@ -21,16 +29,20 @@ const create_cards = (book) =>{
        const col = document.createElement("div")
         col.className = "col-3"
 
-        col.innerHTML = `
+        col.innerHTML += `
+        <div class="d-flex">
              <div class="card">
-                <img src=${book.img} class="card-img-top" alt=${book.title} image>
+                <img src=${book.img} class=" img-fluid card-img-top" alt=${book.title} image>
                  <div class="card-body">
                        <h5 class="card-title">${book.title}</h5>
                         <p class="card-text">${book.category}</p>
-                        <a href="#" class="btn btn-primary">${book.price}</a>
-                <button id="addBook" type="button" class="btn btn-dark" >Add to <i class="bi bi-cart2 text-white"></i> </button>
-               </div>
-                  </div> `
+                <button id="addBook" class="btn btn-primary" onclick="add_to_cart('${String(book.asin)}', this)">$${book.price}</button>
+                <button class="btn btn-warning" onclick="this.closest('.col-12').remove()">
+                Skip me
+                   </button>
+                 </div>
+             </div> 
+         </div>`
 
         row.appendChild(col)
 
@@ -39,22 +51,12 @@ const create_cards = (book) =>{
 
 
 
-const add_to_cart = () =>{
+const add_to_cart = (asin, element) =>{
 
-        
-    const bntAdd = document.getElementById('addBook')
-    
-     bntAdd.addEventListener('click', test )}
-
-
-     let shoppingList = []
-
-function test (){
-        
-    let bookToAdd = document.querySelector('.card');
-    shoppingList[card].push(bookToAdd)
-
-        
+    console.log(asin);
+    const book = books.find((book) => book.asin == asin);
+    shoppingCartList.push(book);
+    console.log(shoppingCartList);
 }
 
 
